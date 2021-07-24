@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+ prometheus:
+  image: prom/prometheus:v2.14.0
+  volumes: [./monitor/:/etc/prometheus/]
+  command:
+    — ‘ — config.file=/etc/monnitor/prometheus.yml’
+  ports: ["9090:9090"]
+ grafana:
+  image: grafana/grafana:6.5.2
+  ports: ["3000:3000"]
