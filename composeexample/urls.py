@@ -16,7 +16,8 @@ Including another URLconf
 from django import urls
 from django.contrib import admin
 from django.urls import path
-from django_prometheus import urls
+from django.conf.urls import url
+from django.conf.urls import include
 
 
 urlpatterns = [

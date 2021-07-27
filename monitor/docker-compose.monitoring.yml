@@ -3,7 +3,7 @@ version: "3.9"
 services:
  prometheus:
   image: prom/prometheus:v2.14.0
-  volumes: [./monitor/:/etc/prometheus/]
+  volumes: [./monitor/prometheus.yml:/etc/prometheus/prometheus.yml]
   command:
     — ‘ — config.file=/etc/monnitor/prometheus.yml’
   ports: ["9090:9090"]
