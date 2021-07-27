@@ -7,7 +7,7 @@ services:
       - ./data/db:/var/lib/postgresql/data
     expose:
       - "5432"
-      environment:
+    environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -19,10 +19,10 @@ services:
     ports:
       - "8000:8000"
     restart: always
-      depends_on:
-      - postgres
-    postgres:
-      image: postgres:latest
+    depends_on:
+     - postgres
+  postgres:
+    image: postgres:latest
   example-prometheus:
     image: prom/prometheus:latest
     restart: unless-stopped
@@ -45,12 +45,12 @@ services:
       - example-prometheus
     ports:
       - 3000:3000
-    volumes:
-      - ./monitor/datasource.yml:/etc/grafana/provisioning/datasource.yml
+    # volumes:
+    #   - ./monitor/datasource.yml:/etc/grafana/provisioning/datasource.yml
     env_file:
       - ./monitor/config.monitoring
     networks:
       - net
 networks:
   net: 
-  driver: bridge    
+    driver: bridge    

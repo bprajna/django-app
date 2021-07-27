@@ -1,2 +1,4 @@
 Django>=3.0,<4.0
 psycopg2-binary>=2.8
+prometheus-client>=0.9.0
+pip-prometheus>=1.2.1
